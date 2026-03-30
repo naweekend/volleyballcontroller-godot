@@ -14,6 +14,14 @@ script = ExtResource("1_2kald")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=331168658]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1580572856]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1489817695]
 anchors_preset = 2
 anchor_top = 1.0
@@ -23,14 +31,14 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer" unique_id=922042088]
-position = Vector2(152, -346)
-scale = Vector2(3, 3)
+position = Vector2(19.999985, -339)
+scale = Vector2(5.425, 4.325)
 texture_normal = ExtResource("2_l1fce")
 texture_pressed = ExtResource("3_nx5aj")
 
 [node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer" unique_id=1917434548]
-position = Vector2(453, -346)
-scale = Vector2(3, 3)
+position = Vector2(490, -342)
+scale = Vector2(5.475, 4.325)
 texture_normal = ExtResource("4_56l83")
 texture_pressed = ExtResource("5_4nh68")
 
@@ -47,7 +55,7 @@ grow_vertical = 0
 
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer2" unique_id=259977956]
 position = Vector2(-417, -414)
-scale = Vector2(4, 4)
+scale = Vector2(5.525, 5.525)
 texture_normal = ExtResource("4_nx5aj")
 texture_pressed = ExtResource("5_56l83")
 

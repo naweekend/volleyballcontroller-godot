@@ -3,17 +3,27 @@ extends Node
 var udp = PacketPeerUDP.new()
 var connected = false
 @onready var connected_label: Label = $CanvasLayer/HBoxContainer3/ConnectedLabel
+@onready var color_rect: ColorRect = $CanvasLayer/ColorRect
+#var colors_set_already := false
 
 func _ready():
-	udp.connect_to_host("###.###.###.##", 4242)
+	udp.connect_to_host("####", 4242)
 
 func _process(delta):
 	if !connected:
 		# Try to contact server
 		udp.put_packet("Yo server and back to me!".to_utf8_buffer())
 	if udp.get_available_packet_count() > 0:
-		print("Connected: %s" % udp.get_packet().get_string_from_utf8())
 		connected = true
+		var packet = udp.get_packet().get_string_from_utf8()
+		
+		if packet.contains("color"):
+			var color_idx = packet[packet.length() - 1]
+			print(packet)
+			if color_idx == "0":
+				color_rect.color = Color("8b341aff")
+			elif color_idx == "1":
+				color_rect.color = Color("377137ff")
 
 	if connected:
 		connected_label.visible = true

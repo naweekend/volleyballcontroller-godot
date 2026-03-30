@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://xchgm2taowgy"]
+
+[ext_resource type="Script" uid="uid://dsy078a15iri0" path="res://controller/controller.gd" id="1_2kald"]
+[ext_resource type="Texture2D" uid="uid://dran1f2ccqavb" path="res://buttons/Square/ArrowLeft-Bold/Default.svg" id="2_l1fce"]
+[ext_resource type="Texture2D" uid="uid://w7a6kqnhkcnm" path="res://buttons/Square/ArrowLeft-Bold/Hover.svg" id="3_nx5aj"]
+[ext_resource type="Texture2D" uid="uid://ncylkq2mqa66" path="res://buttons/Square/ArrowRight-Bold/Default.svg" id="4_56l83"]
+[ext_resource type="Texture2D" uid="uid://c6t7gsr8lk4kx" path="res://buttons/Square/Home/Default.svg" id="4_nx5aj"]
+[ext_resource type="Texture2D" uid="uid://ckr2vg0ivt5eh" path="res://buttons/Square/ArrowRight-Bold/Hover.svg" id="5_4nh68"]
+[ext_resource type="Texture2D" uid="uid://ykae5yknb6ck" path="res://buttons/Square/Home/Hover.svg" id="5_56l83"]
+[ext_resource type="FontFile" uid="uid://6x1dr57b7tek" path="res://fonts/BubblegumSans-Regular.ttf" id="8_56l83"]
+
+[node name="Controller" type="Node" unique_id=157442242]
+script = ExtResource("1_2kald")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=331168658]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1580572856]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1489817695]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer" unique_id=922042088]
+position = Vector2(19.999985, -339)
+scale = Vector2(5.425, 4.325)
+texture_normal = ExtResource("2_l1fce")
+texture_pressed = ExtResource("3_nx5aj")
+
+[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer" unique_id=1917434548]
+position = Vector2(490, -342)
+scale = Vector2(5.475, 4.325)
+texture_normal = ExtResource("4_56l83")
+texture_pressed = ExtResource("5_4nh68")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer" unique_id=715892548]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer2" unique_id=259977956]
+position = Vector2(-417, -414)
+scale = Vector2(5.525, 5.525)
+texture_normal = ExtResource("4_nx5aj")
+texture_pressed = ExtResource("5_56l83")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer" unique_id=1665327738]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.5
+offset_top = 166.0
+offset_right = 197.5
+offset_bottom = 303.0
+grow_horizontal = 2
+
+[node name="ConnectedLabel" type="Label" parent="CanvasLayer/HBoxContainer3" unique_id=1920937685]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.654902, 0.6627451, 0.4117647, 1)
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("8_56l83")
+theme_override_font_sizes/font_size = 150
+text = "Connected"
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="released" from="CanvasLayer/HBoxContainer/LeftButton" to="." method="_on_left_button_released"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="released" from="CanvasLayer/HBoxContainer/RightButton" to="." method="_on_right_button_released"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer2/JumpButton" to="." method="_on_jump_button_pressed"]
+[connection signal="released" from="CanvasLayer/HBoxContainer2/JumpButton" to="." method="_on_jump_button_released"]
